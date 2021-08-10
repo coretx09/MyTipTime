@@ -12,5 +12,33 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // ECOUTEUR DE CLICK
+        binding.buttonPlay.setOnClickListener{ calculateTip() }
+    }
+
+    private fun calculateTip() {
+        // TAKE RESULT (EditText----> .text )
+        val stringInTextField = binding.costOfService.text.toString()
+        // Convert le text en Number decimal and stock
+        // toDouble doit etre call sur un fichier String
+        val cost = stringInTextField.toDouble()
+
+        // GET PERCENTAGE
+        val tipPercentage = when (binding.radioSelect.checkedRadioButtonId){
+            R.id.amazing_20 -> 0.20
+            R.id.good_18 -> 0.18
+            else -> 0.15
+        }
+        // CALCULATE TIP
+        var tip = tipPercentage * cost
+
+        // SWITCH isChecked-- attribute (see if the switch is "ON")
+        val roundUp = binding.rounded.isChecked
+        if (roundUp) {
+            tip = kotlin.math.ceil(tip)
+        }
+
+
     }
 }
