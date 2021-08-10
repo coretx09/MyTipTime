@@ -3,6 +3,7 @@ package com.example.mytiptime
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.mytiptime.databinding.ActivityMainBinding
+import java.text.NumberFormat
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,10 +35,15 @@ class MainActivity : AppCompatActivity() {
         var tip = tipPercentage * cost
 
         // SWITCH isChecked-- attribute (see if the switch is "ON")
-        val roundUp = binding.rounded.isChecked
+        val roundUp = binding.rounded.isChecked // TRUE OR FALSE
         if (roundUp) {
-            tip = kotlin.math.ceil(tip)
+            tip = kotlin.math.ceil(tip) // POUR ARRONDIR
         }
+
+        // FORMAT TIP
+        val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
+
+        binding.tipResult.text = getString(R.string.tip_amount, formattedTip)
 
 
     }
