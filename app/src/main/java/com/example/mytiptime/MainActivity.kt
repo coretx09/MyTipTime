@@ -15,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // ECOUTEUR DE CLICK
-        binding.buttonPlay.setOnClickListener{ calculateTip() }
+        binding.buttonPlay.setOnClickListener { calculateTip() }
     }
 
     private fun calculateTip() {
@@ -25,12 +25,12 @@ class MainActivity : AppCompatActivity() {
         // toDouble doit etre call sur un fichier String
         val cost = stringInTextField.toDoubleOrNull()
         if (cost == null) {
-            binding.tipResult.text = ""
+            binding.tipResult.text = " "
             return
         }
 
         // GET PERCENTAGE
-        val tipPercentage = when (binding.radioSelect.checkedRadioButtonId){
+        val tipPercentage = when (binding.radioSelect.checkedRadioButtonId) {
             R.id.amazing_20 -> 0.20
             R.id.good_18 -> 0.18
             else -> 0.15
@@ -39,8 +39,7 @@ class MainActivity : AppCompatActivity() {
         var tip = tipPercentage * cost
 
         // SWITCH isChecked-- attribute (see if the switch is "ON")
-        val roundUp = binding.rounded.isChecked // TRUE OR FALSE
-        if (roundUp) {
+        if (binding.rounded.isChecked) { // TRUE OR FALSE
             tip = kotlin.math.ceil(tip) // POUR ARRONDIR
         }
 
