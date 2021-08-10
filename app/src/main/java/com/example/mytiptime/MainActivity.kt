@@ -23,7 +23,11 @@ class MainActivity : AppCompatActivity() {
         val stringInTextField = binding.costOfService.text.toString()
         // Convert le text en Number decimal and stock
         // toDouble doit etre call sur un fichier String
-        val cost = stringInTextField.toDouble()
+        val cost = stringInTextField.toDoubleOrNull()
+        if (cost == null) {
+            binding.tipResult.text = ""
+            return
+        }
 
         // GET PERCENTAGE
         val tipPercentage = when (binding.radioSelect.checkedRadioButtonId){
@@ -43,6 +47,7 @@ class MainActivity : AppCompatActivity() {
         // FORMAT TIP
         val formattedTip = NumberFormat.getCurrencyInstance().format(tip)
 
+        // AFFICHE RESULT
         binding.tipResult.text = getString(R.string.tip_amount, formattedTip)
 
 
