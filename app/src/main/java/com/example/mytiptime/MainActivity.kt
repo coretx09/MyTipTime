@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun calculateTip() {
         // TAKE RESULT (EditText----> .text )
-        val stringInTextField = binding.costOfService.text.toString()
+        val stringInTextField = binding.costOfServiceEdit.text.toString()
         // Convert le text en Number decimal and stock
         // toDouble doit etre call sur un fichier String
         val cost = stringInTextField.toDoubleOrNull()

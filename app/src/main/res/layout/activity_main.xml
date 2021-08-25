@@ -8,21 +8,53 @@
     tools:context=".MainActivity">
 
 
-    <EditText
+    <ImageView
+        android:id="@+id/cost_of_service_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/cost_of_service"
+        app:layout_constraintBottom_toBottomOf="@id/cost_of_service"
+        app:srcCompat="@drawable/ic_baseline_store_24"
+        android:importantForAccessibility="no" />
+
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/cost_of_service"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:hint="@string/cost_of_service"
-        android:inputType="numberDecimal"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@id/cost_of_service_image"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/cost_of_service_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="numberDecimal"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+    <ImageView
+        android:id="@+id/question_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/ic_baseline_room_service_24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@id/question"
+        app:layout_constraintBottom_toBottomOf="@id/question"
+        android:importantForAccessibility="no"/>
+
 
     <TextView
         android:id="@+id/question"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/how_was_the_service"
-        app:layout_constraintStart_toStartOf="parent"
+        style="@style/Widget.MyTipTime.TextView"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@+id/cost_of_service"
         app:layout_constraintTop_toBottomOf="@id/cost_of_service" />
 
     <RadioGroup
@@ -31,7 +63,8 @@
         android:layout_height="wrap_content"
         android:checkedButton="@id/amazing_20"
         android:orientation="vertical"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="@id/question"
         app:layout_constraintTop_toBottomOf="@id/question">
 
         <RadioButton
@@ -53,14 +86,26 @@
             android:text="@string/okay_15" />
     </RadioGroup>
 
-    <Switch
+    <ImageView
+        android:id="@+id/rounded_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="@id/rounded"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/rounded"
+        app:srcCompat="@drawable/ic_baseline_clear_all_24" />
+
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
         android:id="@+id/rounded"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:checked="true"
         android:text="@string/round_up_tip"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@id/radio_select"
         app:layout_constraintTop_toBottomOf="@id/radio_select"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
@@ -69,6 +114,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/calculate"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rounded" />
@@ -78,6 +124,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:text="tip amount: $10"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_play" />
 
