@@ -1,4 +1,8 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
+    <!--THEME:
+    Un thème est un ensemble d'attributs appliqués à l'ensemble d'une application,
+    d'une activité ou d'une hiérarchie de vues, et pas seulement à une vue individuelle. -->
+
     <!-- Base application theme. -->
     <style name="Theme.MyTipTime" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <!-- Primary brand color. -->
@@ -11,9 +15,16 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+
         <!-- Customize your theme here. -->
-        <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox</item>
+
+        <!-- TextInputLayout Style:  Styliser en OutlinedBox/FilledBox -->
+        <item name="textInputStyle">@style/Widget.MaterialComponents.TextInputLayout.FilledBox</item>
+
+        <!-- RadioButton style: Styliser par notre prope style cree -->
         <item name="radioButtonStyle">@style/Widget.MyTipTime.CompoundButton.RadioButton</item>
+
+        <!-- Switch style: Styliser par notre prope style cree -->
         <item name="switchStyle">@style/Widget.MyTipTime.CompoundButton.Switch.</item>
 
     </style>
