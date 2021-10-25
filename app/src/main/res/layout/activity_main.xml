@@ -23,6 +23,7 @@
             app:layout_constraintTop_toTopOf="@id/cost_of_service"
             app:srcCompat="@drawable/ic_baseline_store_24" />
 
+        <!-- Tous les TextInput sont stylises dans THEME.XML -->
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/cost_of_service"
             android:layout_width="160dp"
@@ -51,7 +52,7 @@
             app:layout_constraintTop_toTopOf="@id/question"
             app:srcCompat="@drawable/ic_baseline_room_service_24" />
 
-        <!-- On a applique le style a cette view individualement -->
+        <!-- On a applique le style a cette view individualement, stylise dans STYLE.XML -->
         <TextView
             android:id="@+id/question"
             style="@style/Widget.MyTipTime.TextView"
@@ -62,6 +63,7 @@
             app:layout_constraintStart_toStartOf="@+id/cost_of_service"
             app:layout_constraintTop_toBottomOf="@id/cost_of_service" />
 
+        <!-- Tous les RadioButtons sont stylises dans THEME.XML -->
         <RadioGroup
             android:id="@+id/radio_select"
             android:layout_width="wrap_content"
@@ -124,6 +126,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/rounded" />
 
+        <!-- On a applique le style a cette view individualement, styles dans style.xml -->
         <TextView
             android:id="@+id/tip_result"
             style="@style/Widget.MyTipTime.TextView"
